@@ -5,6 +5,6 @@ body {
 
 .container {
   display: flex;
-  flex-direction: column; /* Apila los elementos verticalmente */
-  height: 100vh; /* 100% de la altura de la ventana */
+  flex-direction: column;
+  height: 100vh;
 }

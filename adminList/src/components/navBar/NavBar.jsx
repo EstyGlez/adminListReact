@@ -9,7 +9,7 @@ function Navbar() {
         <p>Próximos Eventos</p>
         <p>Historial de Listas</p>
         <p>Publica tu evento</p>
-        <a href="#contacto">Contacto</a>
+        <p>Contacto</p>
         </nav>
 
         </>
