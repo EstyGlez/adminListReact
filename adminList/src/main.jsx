@@ -7,7 +7,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
    
-    <AdminList.jsx/>
+  <AdminList/>
 
   </React.StrictMode>,
 )

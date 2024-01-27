@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./adminList.css";
 
-const UserList = () => {
+const AdminList = () => {
   const [user, setUser] = useState({
     userName: "",
     surName: "",
@@ -10,7 +10,7 @@ const UserList = () => {
     phoneNumber: ""
   });
 
-  const [userList, setUserList] = useState([]);
+  const [AdminList, setAdminList] = useState([]);
 
   function handleNameChange(e) {
     setUser({ ...user, userName: e.target.value });
@@ -33,7 +33,7 @@ const UserList = () => {
   }
 
   function handleAddUserToList() {
-    setUserList((prevUserList) => [...prevUserList, user]);
+    setAdminList((prevAdminList) => [...prevAdminList, user]);
     setUser({
       userName: "",
       surName: "",
@@ -43,7 +43,7 @@ const UserList = () => {
     });
   }
 
-  console.log(userList);
+  console.log(AdminList);
 
   return (
     <>
@@ -105,7 +105,7 @@ const UserList = () => {
       <button onClick={handleAddUserToList}>Añadir usuario</button>
 
       <ol>
-        {userList.map((user, index) => (
+        {AdminList.map((user, index) => (
           <li key={index}>
             {user.userName} {user.surName} {user.lastName} {user.email}{" "}
             {user.phoneNumber}
