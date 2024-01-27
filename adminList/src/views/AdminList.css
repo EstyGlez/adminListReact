@@ -1,0 +1,15 @@
+.label-container {
+    margin-bottom: 10px;
+  }
+  
+  input {
+    width: 200px;
+    margin-bottom: 5px;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
