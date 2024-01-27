@@ -1,0 +1,10 @@
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%; /* Asegura que el ancho sea del 100% de la ventana */
+  height: 5%;
+  background-color: #e9c9f1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

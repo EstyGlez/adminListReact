@@ -1,13 +1,10 @@
-body{
-  display: flex; /* Establece el modelo de caja flexible */
-  flex-direction: column; /* Los elementos hijos se colocarán en una columna */
-  align-items: center; /* Centra los elementos hijos en el eje transversal (vertical) */
-  justify-content: space-around; /* Centra los elementos hijos en el eje principal (horizontal) */
-  min-height: 100vh; /* Establece la altura mínima del cuerpo al 100% del viewport height */
-  margin: 0; /* Elimina el margen predeterminado del cuerpo */
-  font-family: Arial, sans-serif;
-  font-size: small; /* Cambia la fuente si es necesario */
-  background-color: #e7d4d4; /* Cambia el color de fondo si es necesario */
-  color: #333; /* Cambia el color del texto si es necesario */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
 }
 
+.container {
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  height: 100vh; /* 100% de la altura de la ventana */
+}
