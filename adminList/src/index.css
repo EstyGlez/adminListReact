@@ -1,15 +1,13 @@
-.label-container {
-    margin-bottom: 10px;
-  }
-  
-  input {
-    width: 200px;
-    margin-bottom: 5px;
-  }
-  
-  button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-  }
+body{
+  display: flex; /* Establece el modelo de caja flexible */
+  flex-direction: column; /* Los elementos hijos se colocarán en una columna */
+  align-items: center; /* Centra los elementos hijos en el eje transversal (vertical) */
+  justify-content: space-around; /* Centra los elementos hijos en el eje principal (horizontal) */
+  min-height: 100vh; /* Establece la altura mínima del cuerpo al 100% del viewport height */
+  margin: 0; /* Elimina el margen predeterminado del cuerpo */
+  font-family: Arial, sans-serif;
+  font-size: small; /* Cambia la fuente si es necesario */
+  background-color: #e7d4d4; /* Cambia el color de fondo si es necesario */
+  color: #333; /* Cambia el color del texto si es necesario */
+}
+

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./adminList.css";
 
 const AdminList = () => {
@@ -44,6 +44,8 @@ const AdminList = () => {
   }
 
   console.log(AdminList);
+
+  
 
   return (
     <>
@@ -92,7 +94,7 @@ const AdminList = () => {
       </label>
 
       <label>
-        <h2>número de Teléfono:</h2>
+        <h2>Número de Teléfono:</h2>
         <input
           type="text"
           id="textPhoneNumer"
