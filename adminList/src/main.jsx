@@ -2,13 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import '../src/views/admiList.jsx'
+import AdminList from './views/AdminList.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
-    <App />
-    <adminList.jsx/>
+   
+    <AdminList.jsx/>
 
   </React.StrictMode>,
 )

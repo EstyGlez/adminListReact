@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AdmiList.css";
+import "./adminList.css";
 
 const UserList = () => {
   const [user, setUser] = useState({
@@ -116,4 +116,4 @@ const UserList = () => {
   );
 };
 
-export default UserList;
+export default AdminList;
