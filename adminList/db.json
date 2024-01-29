@@ -1,10 +1,13 @@
 {
-    "users": [
-      { "id": "1", "userName": ""},
-      { "id": "2", "surName": "" },
-      { "id": "3", "lastName": "" },
-      { "id": "4", "email": ""  },
-      { "id": "5", "phoneNumber": ""  }
-    ]
-  
-  }
+
+  "users": [
+    {
+      "id": 1,
+      "userName": "",
+      "surName":"",
+      "lastName": "",
+      "email":"",
+      "phoneNumer":""
+    }
+  ]
+}
