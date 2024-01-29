@@ -23,23 +23,23 @@ const AdminList = () => {
 
 
   function handleNameChange(e) {
-    setUser({ ...user, userName: e.target.value });
+    setUser({ ...user,[e.target.userName]:e.target.value });
   }
 
   function handleSurNameChange(e) {
-    setUser({ ...user, surName: e.target.value });
+    setUser({ ...user, [e.target.surName]:e.target.value });
   }
 
   function handlelastNameChange(e) {
-    setUser({ ...user, lastName: e.target.value });
+    setUser({ ...user, [e.target.lastName]:e.target.value });
   }
 
   function handleEmailChange(e) {
-    setUser({ ...user, email: e.target.value });
+    setUser({ ...user, [e.target.email]:e.target.value });
   }
 
   function handlePhoneNumberChange(e) {
-    setUser({ ...user, phoneNumber: e.target.value });
+    setUser({ ...user, [e.target.phoneNumber]:e.target.value });
   }
 
   function handleAddUserToList() {
@@ -117,7 +117,7 @@ const AdminList = () => {
 
       <button onClick={handleAddUserToList}>Añadir usuario</button>
 
-      {/* <ol>
+      { <ol>
         {AdminList.map((user, index) => (
           <li key = {index}>
             {user.userName} {user.surName} {user.lastName} {user.email}
@@ -125,8 +125,11 @@ const AdminList = () => {
           </li>
         ))}
       </ol>
+}
     </>
   );
-}; */}
+}
+
+
 
 export default AdminList;
