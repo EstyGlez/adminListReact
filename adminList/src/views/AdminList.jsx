@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./adminList.css";
+import { UserService } from "../../UserService";
 
 const AdminList = () => {
   const [user, setUser] = useState({
@@ -12,6 +13,13 @@ const AdminList = () => {
 
   const [AdminList, setAdminList] = useState([]);
 
+  async function getData(){
+    let users = await UserService.getAllUsers();
+    console.log(users);
+    setAdminList(users)
+  }
+
+  getData();
 
 
   function handleNameChange(e) {
@@ -109,9 +117,9 @@ const AdminList = () => {
 
       <button onClick={handleAddUserToList}>Añadir usuario</button>
 
-      <ol>
+      {/* <ol>
         {AdminList.map((user, index) => (
-          <li key={index}>
+          <li key = {index}>
             {user.userName} {user.surName} {user.lastName} {user.email}
             {user.phoneNumber}
           </li>
@@ -119,6 +127,6 @@ const AdminList = () => {
       </ol>
     </>
   );
-};
+}; */}
 
 export default AdminList;
