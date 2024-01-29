@@ -3,6 +3,7 @@ import "./adminList.css";
 import { UserService } from "../../UserService";
 
 const AdminList = () => {
+
   const [user, setUser] = useState({
     userName: "",
     surName: "",
@@ -11,11 +12,10 @@ const AdminList = () => {
     phoneNumber: ""
   });
 
-  const [AdminList, setAdminList] = useState([]);
+  const [adminList, setAdminList] = useState([]);
 
   async function getData(){
     let users = await UserService.getAllUsers();
-    console.log(users);
     setAdminList(users)
   }
 
@@ -117,15 +117,19 @@ const AdminList = () => {
 
       <button onClick={handleAddUserToList}>Añadir usuario</button>
 
-      { <ol>
-        {AdminList.map((user, index) => (
-          <li key = {index}>
-            {user.userName} {user.surName} {user.lastName} {user.email}
-            {user.phoneNumber}
+      {
+        <ol>
+        {admi.map((user, index) => (
+          <li key={index}>
+            {user.userName} {user.surName} {user.lastName} {user.email} {user.phoneNumber}
           </li>
         ))}
       </ol>
-}
+
+      }
+
+
+
     </>
   );
 }
