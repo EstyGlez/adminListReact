@@ -9,7 +9,7 @@ const apiClient = axios.create({
     }
 });
 
-export const UserService = {
+    export const UserService = {
 
     async getAllUsers () {
 
@@ -17,6 +17,10 @@ export const UserService = {
         let allUsers = response.data
         
         return allUsers
+    },
+
+    async submitUser(newUser){
+        await apiClient.post("/users", newUser)
     }
 
 }

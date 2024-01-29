@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./adminList.css";
-import { UserService } from "../../UserService";
+import { UserService } from "../../UserService.js"
 
 const AdminList = () => {
 
@@ -15,36 +15,33 @@ const AdminList = () => {
   const [adminList, setAdminList] = useState([]);
 
   async function getData(){
-    let users = await UserService.getAllUsers();
-    setAdminList(users)
+    let users=await UserService.getAllUsers();
   }
 
-  getData();
-
+  getData()
 
   function handleNameChange(e) {
-    setUser({ ...user,[e.target.userName]:e.target.value });
+    setUser({ ...user, userName:e.target.value });
   }
 
   function handleSurNameChange(e) {
-    setUser({ ...user, [e.target.surName]:e.target.value });
+    setUser({ ...user, surName:e.target.value });
   }
 
   function handlelastNameChange(e) {
-    setUser({ ...user, [e.target.lastName]:e.target.value });
+    setUser({ ...user, lastName :e.target.value });
   }
 
   function handleEmailChange(e) {
-    setUser({ ...user, [e.target.email]:e.target.value });
+    setUser({ ...user, email:e.target.value });
   }
 
   function handlePhoneNumberChange(e) {
-    setUser({ ...user, [e.target.phoneNumber]:e.target.value });
+    setUser({ ...user, phoneNumber:e.target.value });
   }
 
-  function handleAddUserToList() {
-    setAdminList((prevAdminList) => [...prevAdminList, user]);
-    
+  async function handleAddUserToList() {
+    await UserService.submitUser(user);
     setUser({
       userName: "",
       surName: "",
@@ -52,12 +49,11 @@ const AdminList = () => {
       email: "",
       phoneNumber: ""
     });
+    
+    
   }
 
-  console.log(AdminList);
-
   
-
   return (
     <>
       <label>
@@ -118,13 +114,13 @@ const AdminList = () => {
       <button onClick={handleAddUserToList}>Añadir usuario</button>
 
       {
-        <ol>
-        {admi.map((user, index) => (
+        <ul>
+        {adminList.map((user, index) =>(
           <li key={index}>
             {user.userName} {user.surName} {user.lastName} {user.email} {user.phoneNumber}
           </li>
         ))}
-      </ol>
+      </ul>
 
       }
 
