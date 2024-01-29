@@ -12,6 +12,8 @@ const AdminList = () => {
 
   const [AdminList, setAdminList] = useState([]);
 
+
+
   function handleNameChange(e) {
     setUser({ ...user, userName: e.target.value });
   }
@@ -34,6 +36,7 @@ const AdminList = () => {
 
   function handleAddUserToList() {
     setAdminList((prevAdminList) => [...prevAdminList, user]);
+    
     setUser({
       userName: "",
       surName: "",
@@ -109,7 +112,7 @@ const AdminList = () => {
       <ol>
         {AdminList.map((user, index) => (
           <li key={index}>
-            {user.userName} {user.surName} {user.lastName} {user.email}{" "}
+            {user.userName} {user.surName} {user.lastName} {user.email}
             {user.phoneNumber}
           </li>
         ))}
