@@ -21,6 +21,10 @@ const AdminList = () => {
 
   getData()
 
+  function showAlert() {
+    alert("Datos enviados correctamente");
+  }
+
   function handleNameChange(e) {
     setUser({ ...user, userName:e.target.value });
   }
@@ -43,6 +47,8 @@ const AdminList = () => {
 
   async function handleAddUserToList() {
     await UserService.submitUser(user);
+
+
     setUser({
       userName: "",
       surName: "",
@@ -50,13 +56,19 @@ const AdminList = () => {
       email: "",
       phoneNumber: ""
     });
+
     
+    // showAlert()
+
+  
     
   }
 
   
   return (
     <>
+
+    <section className="Form">
       <label>
         <h1>Nombre:</h1>
         <input
@@ -111,43 +123,39 @@ const AdminList = () => {
           onChange={handlePhoneNumberChange}
         />
       </label>
+      </section>
 
-      <button onClick={handleAddUserToList}>Añadir usuario</button>
-{/* 
-      {
-        <ul>
-        {adminList.map((user, index) =>(
-          <li key={index}>
-            {user.userName} {user.surName} {user.lastName} {user.email} {user.phoneNumber}
-          </li>
-        ))}
-      </ul>
+      <section className="buttonForm">
+      <button onClick={async () => { await handleAddUserToList(); showAlert(); }}>Añadir usuario</button>
+      </section>
 
-      } */}
 
-             {/* Sección para mostrar la lista de usuarios en una tabla */}
+
+      <section className="listForm">       
              <table>
         <thead>
           <tr>
-            <th>Nombre</th>
-            <th>Primer Apellido</th>
-            <th>Segundo Apellido</th>
-            <th>Correo Electrónico</th>
-            <th>Número de Teléfono</th>
+            <th className="title">Nombre</th>
+            <th className="title">Primer Apellido</th>
+            <th className="title">Segundo Apellido</th>
+            <th className="title">Correo Electrónico</th>
+            <th className="title">Número de Teléfono</th>
           </tr>
         </thead>
         <tbody>
           {adminList.map((user) => (
             <tr key={user.id}>
-              <td>{user.userName}</td>
-              <td>{user.surName}</td>
-              <td>{user.lastName}</td>
-              <td>{user.email}</td>
-              <td>{user.phoneNumber}</td>
+              <td className="dataUser">{user.userName}</td>
+              <td className="dataUser">{user.surName}</td>
+              <td className="dataUser">{user.lastName}</td>
+              <td className="dataUser">{user.email}</td>
+              <td className="dataUser">{user.phoneNumber}</td>
             </tr>
           ))}
         </tbody>
       </table>
+      </section>
+
     </>
   );
 };

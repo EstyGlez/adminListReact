@@ -24,6 +24,10 @@
 
 //   getData()
 
+//   function showAlert() {
+//     alert("Datos enviados correctamente");
+//   }
+
 //   function handleNameChange(e) {
 //     setUser({ ...user, userName:e.target.value });
 //   }
@@ -46,6 +50,8 @@
 
 //   async function handleAddUserToList() {
 //     await UserService.submitUser(user);
+
+
 //     setUser({
 //       userName: "",
 //       surName: "",
@@ -53,7 +59,11 @@
 //       email: "",
 //       phoneNumber: ""
 //     });
+
     
+//     // showAlert()
+
+  
     
 //   }
 
@@ -115,20 +125,11 @@
 //         />
 //       </label>
 
-//       <button onClick={handleAddUserToList}>Añadir usuario</button>
-// {/* 
-//       {
-//         <ul>
-//         {adminList.map((user, index) =>(
-//           <li key={index}>
-//             {user.userName} {user.surName} {user.lastName} {user.email} {user.phoneNumber}
-//           </li>
-//         ))}
-//       </ul>
+//       <button onClick={async () => { await handleAddUserToList(); showAlert(); }}>Añadir usuario</button>
 
-//       } */}
 
-//              {/* Sección para mostrar la lista de usuarios en una tabla */}
+
+             
 //              <table>
 //         <thead>
 //           <tr>

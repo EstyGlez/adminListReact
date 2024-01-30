@@ -1,0 +1,32 @@
+.navStyle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff; /* Color de fondo del navbar, ajusta según tus preferencias */
+    color: #fff; /* Color del texto, ajusta según tus preferencias */
+  }
+  
+
+  .logoStyle {
+    width: 90px; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+  
+
+  .listStyle {
+    margin: 0; 
+    color: black;
+    font-family: inherit;
+    font-size: 30px;
+  }
+  
+
+  .backbutton {
+    background-color: lightgrey; /* Color de fondo del botón, ajusta según tus preferencias */
+    color: black; /* Color del texto del botón, ajusta según tus preferencias */
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
