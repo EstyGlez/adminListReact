@@ -1,14 +1,24 @@
-.footerStyle{
-    display: flex;
-    justify-content:flex-start;
-    padding: 10px 20px;
+.footCont {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footerStyle {
     background-color: #ffffff;
-}
-
-.femStyle{
-
+    height: 90px;
+    display: flex;
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    align-items: center; /* Centra verticalmente el contenido */
+    padding: 0 20px; /* Añade relleno solo a los lados */
+  }
+  
+  .femStyle {
     font-family: inherit;
-    font-size: 30px;
+    font-size: 20px;
     color: black;
-    margin: 0;
-}
+    background-color: lightgray;
+    border-radius: 3px;
+    padding: 8px;
+  }
+  
