@@ -16,6 +16,7 @@ const AdminList = () => {
 
   async function getData(){
     let users=await UserService.getAllUsers();
+    setAdminList(users);
   }
 
   getData()
@@ -112,7 +113,7 @@ const AdminList = () => {
       </label>
 
       <button onClick={handleAddUserToList}>Añadir usuario</button>
-
+{/* 
       {
         <ul>
         {adminList.map((user, index) =>(
@@ -122,13 +123,37 @@ const AdminList = () => {
         ))}
       </ul>
 
-      }
+      } */}
 
-
-
+             {/* Sección para mostrar la lista de usuarios en una tabla */}
+             <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Primer Apellido</th>
+            <th>Segundo Apellido</th>
+            <th>Correo Electrónico</th>
+            <th>Número de Teléfono</th>
+          </tr>
+        </thead>
+        <tbody>
+          {adminList.map((user) => (
+            <tr key={user.id}>
+              <td>{user.userName}</td>
+              <td>{user.surName}</td>
+              <td>{user.lastName}</td>
+              <td>{user.email}</td>
+              <td>{user.phoneNumber}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
-}
+};
+
+  
+
 
 
 
