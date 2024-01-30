@@ -58,10 +58,6 @@ const AdminList = () => {
     });
 
     
-    // showAlert()
-
-  
-    
   }
 
   
@@ -125,14 +121,10 @@ const AdminList = () => {
         />
       </label>
 
+    
+      <button className="buttonForm" onClick={async () => { await handleAddUserToList(); showAlert(); }}>Añadir usuario</button>
       
-      <button onClick={async () => { await handleAddUserToList(); showAlert(); }}>Añadir usuario</button>
       </section>
-
-      {/* <section className="buttonForm">
-      <button onClick={async () => { await handleAddUserToList(); showAlert(); }}>Añadir usuario</button>
-      </section> */}
-
 
 
       <section className="listForm">       
@@ -166,8 +158,5 @@ const AdminList = () => {
 };
 
   
-
-
-
 
 export default AdminList;
