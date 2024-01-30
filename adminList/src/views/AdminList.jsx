@@ -19,7 +19,15 @@ const AdminList = () => {
     setAdminList(users);
   }
 
-  getData()
+  useEffect(() => {
+    getData();
+   }, [adminList]);
+
+  async function handleDeleteUser(userId) {
+    await UserService.deleteUser(userId);
+    let updatedUsers = adminList.filter(user => user.id !== userId);
+    setAdminList(updatedUsers);
+   }
 
   function showAlert() {
     alert("Datos enviados correctamente");
@@ -68,7 +76,7 @@ const AdminList = () => {
      <section className="Form">
       <label>
         <h3>Nombre:</h3>
-        <input input className="imputStyle"
+        <input className="imputStyle"
           type="text"
           id="textUserName"
           name="userName"
@@ -79,7 +87,7 @@ const AdminList = () => {
 
       <label>
         <h3>Primer Apellido:</h3>
-        <input input className="imputStyle"
+        <input className="imputStyle"
           type="text"
           id="texSurName"
           name="surName"
@@ -128,32 +136,32 @@ const AdminList = () => {
 
 
       <section className="listForm">       
-             <table>
-        <thead>
-          <tr>
-            <th className="title">Nombre</th>
-            <th className="title">Primer Apellido</th>
-            <th className="title">Segundo Apellido</th>
-            <th className="title">Correo Electrónico</th>
-            <th className="title">Número de Teléfono</th>
-          </tr>
-        </thead>
-        <tbody>
-          {adminList.map((user) => (
-            <tr key={user.id}>
-              <td className="dataUser">{user.userName}</td>
-              <td className="dataUser">{user.surName}</td>
-              <td className="dataUser">{user.lastName}</td>
-              <td className="dataUser">{user.email}</td>
-              <td className="dataUser">{user.phoneNumber}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      </section>
-      
- 
-    </section>
+      <table>
+ <thead>
+    <tr>
+      <th className="title">Nombre</th>
+      <th className="title">Primer Apellido</th>
+      <th className="title">Segundo Apellido</th>
+      <th className="title">Correo Electrónico</th>
+      <th className="title">Número de Teléfono</th>
+    </tr>
+ </thead>
+ <tbody>
+    {adminList.map((user) => (
+      <tr key={user.id}>
+        <td className="dataUser">{user.userName}</td>
+        <td className="dataUser">{user.surName}</td>
+        <td className="dataUser">{user.lastName}</td>
+        <td className="dataUser">{user.email}</td>
+        <td className="dataUser">{user.phoneNumber}</td>
+        <td><button onClick={() => handleDeleteUser(user.id)}>Eliminar</button></td>
+      </tr>
+    ))}
+ </tbody>
+</table>
+
+</section>
+</section>
   );
 };
 

@@ -21,6 +21,16 @@ const apiClient = axios.create({
 
     async submitUser(newUser){
         await apiClient.post("/users", newUser)
-    }
+    },
+
+    async deleteUser(userId) {
+        try {
+           await apiClient.delete(`/users/${userId}`);
+        } catch (error) {
+           console.error('Hubo un problema al eliminar el usuario:', error);
+        }
+       }
+       
+       
 
 }

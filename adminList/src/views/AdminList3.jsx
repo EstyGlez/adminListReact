@@ -61,18 +61,17 @@
 //     });
 
     
-//     // showAlert()
-
-  
-    
 //   }
 
   
 //   return (
-//     <>
+//     <section className="container">
+
+
+//      <section className="Form">
 //       <label>
-//         <h1>Nombre:</h1>
-//         <input
+//         <h3>Nombre:</h3>
+//         <input className="imputStyle"
 //           type="text"
 //           id="textUserName"
 //           name="userName"
@@ -82,8 +81,8 @@
 //       </label>
 
 //       <label>
-//         <h2>Primer Apellido:</h2>
-//         <input
+//         <h3>Primer Apellido:</h3>
+//         <input className="imputStyle"
 //           type="text"
 //           id="texSurName"
 //           name="surName"
@@ -93,8 +92,8 @@
 //       </label>
 
 //       <label>
-//         <h2>Segundo Apellido:</h2>
-//         <input
+//         <h3>Segundo Apellido:</h3>
+//         <input className="imputStyle"
 //           type="text"
 //           id="textLastName"
 //           name="lastName"
@@ -104,8 +103,8 @@
 //       </label>
 
 //       <label>
-//         <h1>Correo Electrónico:</h1>
-//         <input
+//         <h3>Correo Electrónico:</h3>
+//         <input className="imputStyle"
 //           type="text"
 //           id="textEmail"
 //           name="email"
@@ -115,8 +114,8 @@
 //       </label>
 
 //       <label>
-//         <h2>Número de Teléfono:</h2>
-//         <input
+//         <h3>Número de Teléfono:</h3>
+//         <input className="imputStyle"
 //           type="text"
 //           id="textPhoneNumer"
 //           name="phoneNumber"
@@ -125,40 +124,42 @@
 //         />
 //       </label>
 
-//       <button onClick={async () => { await handleAddUserToList(); showAlert(); }}>Añadir usuario</button>
+    
+//       <button className="buttonForm" onClick={async () => { await handleAddUserToList(); showAlert(); }}>Añadir usuario</button>
+      
+//       </section>
 
 
-
-             
+//       <section className="listForm">       
 //              <table>
 //         <thead>
 //           <tr>
-//             <th>Nombre</th>
-//             <th>Primer Apellido</th>
-//             <th>Segundo Apellido</th>
-//             <th>Correo Electrónico</th>
-//             <th>Número de Teléfono</th>
+//             <th className="title">Nombre</th>
+//             <th className="title">Primer Apellido</th>
+//             <th className="title">Segundo Apellido</th>
+//             <th className="title">Correo Electrónico</th>
+//             <th className="title">Número de Teléfono</th>
 //           </tr>
 //         </thead>
 //         <tbody>
 //           {adminList.map((user) => (
 //             <tr key={user.id}>
-//               <td>{user.userName}</td>
-//               <td>{user.surName}</td>
-//               <td>{user.lastName}</td>
-//               <td>{user.email}</td>
-//               <td>{user.phoneNumber}</td>
+//               <td className="dataUser">{user.userName}</td>
+//               <td className="dataUser">{user.surName}</td>
+//               <td className="dataUser">{user.lastName}</td>
+//               <td className="dataUser">{user.email}</td>
+//               <td className="dataUser">{user.phoneNumber}</td>
 //             </tr>
 //           ))}
 //         </tbody>
 //       </table>
-//     </>
+//       </section>
+      
+ 
+//     </section>
 //   );
 // };
 
   
-
-
-
 
 // export default AdminList;
