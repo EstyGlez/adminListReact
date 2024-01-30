@@ -1,4 +1,5 @@
-//VERSIÓN GET DATA SIN HACER POST EN TABLA, SOLO AÑADE USUARIOS DE INPUT AL JSON
+//VERSIÓN FINAL (EL PRIMER .MAP SOBRA, ES DE LA VERSIÓN ANTERIOR)
+
 
 // import React, { useState, useEffect } from "react";
 // import "./adminList.css";
@@ -18,6 +19,7 @@
 
 //   async function getData(){
 //     let users=await UserService.getAllUsers();
+//     setAdminList(users);
 //   }
 
 //   getData()
@@ -114,7 +116,7 @@
 //       </label>
 
 //       <button onClick={handleAddUserToList}>Añadir usuario</button>
-
+// {/* 
 //       {
 //         <ul>
 //         {adminList.map((user, index) =>(
@@ -124,10 +126,38 @@
 //         ))}
 //       </ul>
 
-//       }
+//       } */}
 
-
-
+//              {/* Sección para mostrar la lista de usuarios en una tabla */}
+//              <table>
+//         <thead>
+//           <tr>
+//             <th>Nombre</th>
+//             <th>Primer Apellido</th>
+//             <th>Segundo Apellido</th>
+//             <th>Correo Electrónico</th>
+//             <th>Número de Teléfono</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {adminList.map((user) => (
+//             <tr key={user.id}>
+//               <td>{user.userName}</td>
+//               <td>{user.surName}</td>
+//               <td>{user.lastName}</td>
+//               <td>{user.email}</td>
+//               <td>{user.phoneNumber}</td>
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
 //     </>
 //   );
-// }
+// };
+
+  
+
+
+
+
+// export default AdminList;
