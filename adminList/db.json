@@ -1,36 +1,12 @@
 {
   "users": [
     {
-      "id": "1",
-      "userName": "",
-      "surName": "",
-      "lastName": "",
-      "email": "",
-      "phoneNumber": ""
-    },
-    {
-      "id": "20de",
-      "userName": "Estíbaliz",
-      "surName": "González",
-      "lastName": "Pérez",
-      "email": "estibaliz87gonzalez@gmail.com",
+      "id": "65fc",
+      "userName": "esty",
+      "surName": "gon",
+      "lastName": "perez",
+      "email": "estyrpa@gmail.com",
       "phoneNumber": "633157005"
-    },
-    {
-      "id": "7098",
-      "userName": "",
-      "surName": "",
-      "lastName": "",
-      "email": "",
-      "phoneNumber": ""
-    },
-    {
-      "id": "6611",
-      "userName": "",
-      "surName": "",
-      "lastName": "",
-      "email": "",
-      "phoneNumber": ""
     }
   ]
 }

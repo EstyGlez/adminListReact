@@ -3,6 +3,7 @@
 /* Contenedor general */
 .FormContainer {
   display: flex;
+  flex-direction:column;
   
 }
 
@@ -40,7 +41,7 @@ border-radius: 7px;
   margin: 30px;
   padding: 2px;
   margin-top: 10px;
-  background-color: rgb(248, 245, 245);
+  background-color:  rgb(225, 219, 250);
   width: 102px ;
   
 }
@@ -67,5 +68,17 @@ border-radius: 7px;
   border-radius: 4px;
   border: black solid;
 
+}
+
+.dataUser{
+  font-size: 19px;
+  font-family: inherit;
+  padding: 5px;
+  margin: 10px;
+  height: 15px;
+  width: 100px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  border: black solid;
 }
 
