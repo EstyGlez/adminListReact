@@ -66,9 +66,10 @@ const AdminList = () => {
 
   
   return (
-    <>
+    <section className="container">
 
-    <section className="Form">
+
+     <section className="Form">
       <label>
         <h3>Nombre:</h3>
         <input input className="imputStyle"
@@ -123,11 +124,14 @@ const AdminList = () => {
           onChange={handlePhoneNumberChange}
         />
       </label>
-      </section>
 
-      <section className="buttonForm">
+      
       <button onClick={async () => { await handleAddUserToList(); showAlert(); }}>Añadir usuario</button>
       </section>
+
+      {/* <section className="buttonForm">
+      <button onClick={async () => { await handleAddUserToList(); showAlert(); }}>Añadir usuario</button>
+      </section> */}
 
 
 
@@ -155,8 +159,9 @@ const AdminList = () => {
         </tbody>
       </table>
       </section>
-
-    </>
+      
+ 
+    </section>
   );
 };
 
