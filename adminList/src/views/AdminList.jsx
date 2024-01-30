@@ -70,8 +70,8 @@ const AdminList = () => {
 
     <section className="Form">
       <label>
-        <h1>Nombre:</h1>
-        <input
+        <h3>Nombre:</h3>
+        <input input className="imputStyle"
           type="text"
           id="textUserName"
           name="userName"
@@ -81,8 +81,8 @@ const AdminList = () => {
       </label>
 
       <label>
-        <h2>Primer Apellido:</h2>
-        <input
+        <h3>Primer Apellido:</h3>
+        <input input className="imputStyle"
           type="text"
           id="texSurName"
           name="surName"
@@ -92,8 +92,8 @@ const AdminList = () => {
       </label>
 
       <label>
-        <h2>Segundo Apellido:</h2>
-        <input
+        <h3>Segundo Apellido:</h3>
+        <input className="imputStyle"
           type="text"
           id="textLastName"
           name="lastName"
@@ -103,8 +103,8 @@ const AdminList = () => {
       </label>
 
       <label>
-        <h1>Correo Electrónico:</h1>
-        <input
+        <h3>Correo Electrónico:</h3>
+        <input className="imputStyle"
           type="text"
           id="textEmail"
           name="email"
@@ -114,8 +114,8 @@ const AdminList = () => {
       </label>
 
       <label>
-        <h2>Número de Teléfono:</h2>
-        <input
+        <h3>Número de Teléfono:</h3>
+        <input className="imputStyle"
           type="text"
           id="textPhoneNumer"
           name="phoneNumber"

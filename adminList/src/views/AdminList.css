@@ -1,27 +1,71 @@
-.adminList {
-  margin-top: 5vh;
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
+/* adminList.css */
+
+/* Contenedor general */
+.FormContainer {
+  display: flex;
+  
 }
 
- .label-container {
+/* Contenedor del formulario */
+.Form {
+  flex: 1;
+  padding: 30px; /* Agrega un poco de espacio alrededor del formulario */
+  background-color: rgb(225, 219, 250);
+  padding: 10px;
+  margin: 10px;
+  height: 420px;
+  width: 320px;
+  border-radius: 10px;
+}
+
+/* Estilos para las etiquetas y entradas de formulario */
+.Form label {
   margin-bottom: 10px;
-} 
-
-input {
-  width: calc(33.33% - 20px);
-  margin-bottom: 10px;
-  padding: 8px;
-  border-radius: 5px;
-  background-color: #e9c9f1;
-  font-size: 16px;
+  
 }
 
-button {
-  background-color: #b893c2;
-  color: rgb(14, 0, 0);
-  padding: 8px;
-  cursor: pointer;
-  border-radius: 8px;
+h3 {
+  font-size: 19px;
+  font-family: inherit;
+
 }
+
+.imputStyle{
+width: 300px;
+border-radius: 7px;
+}
+
+
+.buttonForm {
+  margin: 30px;
+  padding: 2px;
+  margin-top: 10px;
+  background-color: rgb(248, 245, 245);
+  width: 102px ;
+  
+}
+
+.listForm{
+  background-color: aqua;
+  height: 420px;
+  width: 680px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: rgb(225, 219, 250);
+}
+
+
+.title {
+  font-size: 19px;
+  font-family: inherit;
+  padding: 5px;
+  margin: 10px;
+  height: 15px;
+  width: 100px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  border: black solid;
+
+}
+

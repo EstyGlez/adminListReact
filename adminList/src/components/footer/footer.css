@@ -1,0 +1,14 @@
+.footerStyle{
+    display: flex;
+    justify-content:flex-start;
+    padding: 10px 20px;
+    background-color: #ffffff;
+}
+
+.femStyle{
+
+    font-family: inherit;
+    font-size: 30px;
+    color: black;
+    margin: 0;
+}
