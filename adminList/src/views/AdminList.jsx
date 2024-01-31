@@ -1,87 +1,71 @@
 import React, { useState, useEffect } from "react";
 import "./adminList.css";
+import { useForm, FormProvider } from "react-hook-form";
 import { UserService } from "../../UserService.js"
 
 const AdminList = () => {
 
-  const [user, setUser] = useState({
-    userName: "",
-    surName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: ""
-  });
+//  const [user, setUser] = useState({
+//     userName: "",
+//     surName: "",
+//     lastName: "",
+//     email: "",
+//     phoneNumber: ""
+//  });
 
-  const [adminList, setAdminList] = useState([]);
+ const [adminList, setAdminList] = useState([]);
+ const methods = useForm();
 
-  async function getData(){
+ async function getData(){
     let users=await UserService.getAllUsers();
     setAdminList(users);
-  }
+ }
 
-  useEffect(() => {
+ useEffect(() => {
     getData();
    }, [adminList]);
 
-  async function handleDeleteUser(userId) {
+ async function handleDeleteUser(userId) {
     await UserService.deleteUser(userId);
     let updatedUsers = adminList.filter(user => user.id !== userId);
     setAdminList(updatedUsers);
    }
 
-  function showAlert() {
+ function showAlert() {
     alert("Datos enviados correctamente");
-  }
+ }
 
-  function handleNameChange(e) {
-    setUser({ ...user, userName:e.target.value });
-  }
+ const onSubmit = methods.handleSubmit(data => {
+ if (!data.userName || !data.surName || !data.lastName || !data.email || !data.phoneNumber) {
+    alert("Por favor, complete todos los campos.");
+    return;
+ }
 
-  function handleSurNameChange(e) {
-    setUser({ ...user, surName:e.target.value });
-  }
-
-  function handlelastNameChange(e) {
-    setUser({ ...user, lastName :e.target.value });
-  }
-
-  function handleEmailChange(e) {
-    setUser({ ...user, email:e.target.value });
-  }
-
-  function handlePhoneNumberChange(e) {
-    setUser({ ...user, phoneNumber:e.target.value });
-  }
-
-  async function handleAddUserToList() {
-    await UserService.submitUser(user);
-
-
-    setUser({
+ // Lógica para agregar un nuevo usuario
+ UserService.submitUser(data);
+ methods.reset();
+ setUser({
       userName: "",
       surName: "",
       lastName: "",
       email: "",
       phoneNumber: ""
     });
+});
 
-    
-  }
-
-  
-  return (
+ return (
     <section className="container">
 
-
      <section className="Form">
+      <FormProvider {...methods}>
+      <form onSubmit={onSubmit}>
       <label>
         <h3>Nombre:</h3>
         <input className="imputStyle"
           type="text"
           id="textUserName"
           name="userName"
-          value={user.userName}
-          onChange={handleNameChange}
+          {...methods.register('userName', { required: true })}
         />
       </label>
 
@@ -91,8 +75,7 @@ const AdminList = () => {
           type="text"
           id="texSurName"
           name="surName"
-          value={user.surName}
-          onChange={handleSurNameChange}
+          {...methods.register('surName', { required: true })}
         />
       </label>
 
@@ -102,8 +85,7 @@ const AdminList = () => {
           type="text"
           id="textLastName"
           name="lastName"
-          value={user.lastName}
-          onChange={handlelastNameChange}
+          {...methods.register('lastName', { required: true })}
         />
       </label>
 
@@ -113,8 +95,7 @@ const AdminList = () => {
           type="text"
           id="textEmail"
           name="email"
-          value={user.email}
-          onChange={handleEmailChange}
+          {...methods.register('email', { required: true })}
         />
       </label>
 
@@ -124,13 +105,13 @@ const AdminList = () => {
           type="text"
           id="textPhoneNumer"
           name="phoneNumber"
-          value={user.phoneNumber}
-          onChange={handlePhoneNumberChange}
+          {...methods.register('phoneNumber', { required: true })}
         />
       </label>
 
-    
-      <button className="buttonForm" onClick={async () => { await handleAddUserToList(); showAlert(); }}>Añadir usuario</button>
+      <button className="buttonForm" type="submit">Añadir usuario</button>
+      </form>
+      </FormProvider>
       
       </section>
 
@@ -162,9 +143,7 @@ const AdminList = () => {
 
 </section>
 </section>
-  );
+ );
 };
-
-  
 
 export default AdminList;
