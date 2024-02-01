@@ -28,4 +28,3 @@ Para instalar la aplicación, sigue estos pasos:
 3. Instala las dependencias: `npm install`
 4. Inicia la aplicación: `npm start`
 
-![This is an alt text.](./imgReadMe/lista%20cole.png )
