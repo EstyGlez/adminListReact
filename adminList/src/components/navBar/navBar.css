@@ -1,11 +1,47 @@
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 5%;
-    background-color: #e9c9f1;
+
+ 
+  nav {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-around;
+    top: 0;
+    left: 0;
+    background-color:white; /* Color de fondo del navbar, ajusta según tus preferencias */
+    height: 90px;
+    width: 100%;
   }
+
+  .logoStyle {
+    width: 90px; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+  
+
+  .listStyle {
+    margin: 0; 
+    color: black;
+    font-family: inherit;
+    font-size: 30px;
+  }
+  
+
+  .backbutton {
+    background-color: lightgrey; /* Color de fondo del botón, ajusta según tus preferencias */
+    color: black; /* Color del texto del botón, ajusta según tus preferencias */
+    border: none;
+    padding: 10px 14px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+
+  @media only screen and (max-width: 430px){
+    .backbutton {
+      font-size: 10px;
+      height: auto;
+      width: 70px;
+    }
+  }
+
   

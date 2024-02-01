@@ -1,121 +1,174 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./adminList.css";
+import { useForm, FormProvider } from "react-hook-form";
+import { UserService } from "../../UserService.js"
 
 const AdminList = () => {
-  const [user, setUser] = useState({
-    userName: "",
-    surName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: ""
-  });
 
-  const [AdminList, setAdminList] = useState([]);
+//  const [user, setUser] = useState({
+//     userName: "",
+//     surName: "",
+//     lastName: "",
+//     email: "",
+//     phoneNumber: ""
+//  });
 
-  function handleNameChange(e) {
-    setUser({ ...user, userName: e.target.value });
-  }
+ const [adminList, setAdminList] = useState([]);
+ const methods = useForm();
+ const {register, handleSubmit, formState: {errors}} = methods;
 
-  function handleSurNameChange(e) {
-    setUser({ ...user, surName: e.target.value });
-  }
+ async function getData(){
+    let users=await UserService.getAllUsers();
+    setAdminList(users);
+ }
 
-  function handlelastNameChange(e) {
-    setUser({ ...user, lastName: e.target.value });
-  }
+ useEffect(() => {
+    getData();
+   }, [adminList]);
 
-  function handleEmailChange(e) {
-    setUser({ ...user, email: e.target.value });
-  }
+ async function handleDeleteUser(userId) {
+    await UserService.deleteUser(userId);
+    let updatedUsers = adminList.filter(user => user.id !== userId);
+    setAdminList(updatedUsers);
+   }
 
-  function handlePhoneNumberChange(e) {
-    setUser({ ...user, phoneNumber: e.target.value });
-  }
+ function showAlert() {
+    alert("Datos enviados correctamente");
+ }
 
-  function handleAddUserToList() {
-    setAdminList((prevAdminList) => [...prevAdminList, user]);
-    setUser({
-      userName: "",
-      surName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: ""
-    });
-  }
-
-  console.log(AdminList);
-
+ const onSubmit = methods.handleSubmit(data => {
+  let isAnyFieldEmpty = false;
   
 
-  return (
-    <>
+  if (!data.userName) {
+      alert("El nombre de usuario es requerido.");
+      isAnyFieldEmpty = true;
+  }
+  if (!data.surName) {
+      alert("El primer apellido es requerido.");
+      isAnyFieldEmpty = true;
+  }
+  if (!data.lastName) {
+      alert("El segundo apellido es requerido.");
+      isAnyFieldEmpty = true;
+  }
+  if (!data.email) {
+      alert("El correo electrónico es requerido.");
+      isAnyFieldEmpty = true;
+  }
+  if (!data.phoneNumber) {
+      alert("El número de teléfono es requerido.");
+      isAnyFieldEmpty = true;
+  }
+
+  if (isAnyFieldEmpty) {
+      alert("Todos los campos son obligatorios.");
+      return;
+  }
+
+ console.log(alert)
+ UserService.submitUser(data);
+ methods.reset();
+ showAlert();
+
+});
+
+ return (
+    <section className="container">
+
+     <section className="Form">
+      <FormProvider {...methods}>
+      <form onSubmit={onSubmit}>
       <label>
-        <h1>Nombre:</h1>
-        <input
+        <h3>Nombre:</h3>
+        <input className="imputStyle"
           type="text"
           id="textUserName"
           name="userName"
-          value={user.userName}
-          onChange={handleNameChange}
+          {...methods.register('userName', { required: true })}
         />
+        {errors.userName && <p className="error">El nombre de usuario es requerido.</p>}
       </label>
 
       <label>
-        <h2>Primer Apellido:</h2>
-        <input
+        <h3>Primer Apellido:</h3>
+        <input className="imputStyle"
           type="text"
           id="texSurName"
           name="surName"
-          value={user.surName}
-          onChange={handleSurNameChange}
+          {...methods.register('surName', { required: true })}
         />
+        {errors.surName && <p className="error">El Primer Apellido es requerido.</p>}
       </label>
 
       <label>
-        <h2>Segundo Apellido:</h2>
-        <input
+        <h3>Segundo Apellido:</h3>
+        <input className="imputStyle"
           type="text"
           id="textLastName"
           name="lastName"
-          value={user.lastName}
-          onChange={handlelastNameChange}
+          {...methods.register('lastName', { required: true})}
         />
+        {errors.lastName && <p className="error">El Segundo Apellido es requerido.</p>}
       </label>
 
       <label>
-        <h1>Correo Electrónico:</h1>
-        <input
+        <h3>Correo Electrónico:</h3>
+        <input className="imputStyle"
           type="text"
           id="textEmail"
           name="email"
-          value={user.email}
-          onChange={handleEmailChange}
+          {...methods.register('email', { required: true })}
         />
+        {errors.email && <p className="error">El correo electrónico es requerido.</p>}
       </label>
 
       <label>
-        <h2>Número de Teléfono:</h2>
-        <input
+        <h3>Número de Teléfono:</h3>
+        <input className="imputStyle"
           type="text"
           id="textPhoneNumer"
           name="phoneNumber"
-          value={user.phoneNumber}
-          onChange={handlePhoneNumberChange}
+          {...methods.register('phoneNumber', { required: true })}
         />
+        {errors.phoneNumber && <p className="error">El teléfono es requerido.</p>}
       </label>
 
-      <button onClick={handleAddUserToList}>Añadir usuario</button>
+      <button className="buttonForm" type="submit">Añadir usuario</button>
+      </form>
+      </FormProvider>
+      
+      </section>
 
-      <ol>
-        {AdminList.map((user, index) => (
-          <li key={index}>
-            {user.userName} {user.surName} {user.lastName} {user.email}{" "}
-            {user.phoneNumber}
-          </li>
-        ))}
-      </ol>
-    </>
-  );
+
+      <section className="listForm">       
+      <table>
+ <thead>
+    <tr>
+      <th className="title">Nombre</th>
+      <th className="title">Primer Apellido</th>
+      <th className="title">Segundo Apellido</th>
+      <th className="title">Correo Electrónico</th>
+      <th className="title">Número de Teléfono</th>
+    </tr>
+ </thead>
+ <tbody>
+    {adminList.map((user) => (
+      <tr key={user.id}>
+        <td className="dataUser">{user.userName}</td>
+        <td className="dataUser">{user.surName}</td>
+        <td className="dataUser">{user.lastName}</td>
+        <td className="dataUser">{user.email}</td>
+        <td className="dataUser">{user.phoneNumber}</td>
+        <td><button onClick={() => handleDeleteUser(user.id)}>Eliminar</button></td>
+      </tr>
+    ))}
+ </tbody>
+</table>
+
+</section>
+</section>
+ );
 };
 
 export default AdminList;

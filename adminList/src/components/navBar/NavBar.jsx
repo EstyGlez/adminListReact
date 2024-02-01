@@ -1,19 +1,22 @@
-import './navBar.css'
+import "./navBar.css"
+import logoImage from "./images/escudo.svg"
 
-function Navbar() {
 
-    return (
-        <>
+const Navbar = () => {
+
+    function goBackAlert(){
+        alert("Vuelva a la página de Inicio")
+    }
+   
+
     
-        <nav>
-        <p>Próximos Eventos</p>
-        <p>Historial de Listas</p>
-        <p>Publica tu evento</p>
-        <p>Contacto</p>
-        </nav>
-
-        </>
-    )
-}
-
-export default Navbar 
+    return (
+      <nav className="navStyle">
+        <img className="logoStyle" src={logoImage} alt="Logo de la empresa" />
+        <h1 className="listStyle">LISTADO ESCOLAR</h1>
+        <button className="backbutton" onClick={goBackAlert}>Ir Atrás</button>
+      </nav>
+    );
+  };
+  
+  export default Navbar;

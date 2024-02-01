@@ -1,0 +1,33 @@
+.footCont {
+    position: fixed;
+    bottom: 0;
+    margin:0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .footerStyle {
+    background-color: #ffffff;
+    height: 90px;
+    display: flex;
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    align-items: center; /* Centra verticalmente el contenido */
+    padding: 0 20px; /* Añade relleno solo a los lados */
+  }
+  
+  .femStyle {
+    font-family: inherit;
+    font-size: 20px;
+    color: black;
+    background-color: lightgray;
+    border-radius: 3px;
+    padding: 8px;
+  }
+
+  @media screen and (max-width: 430px){
+    .femStyle {
+      font-size: 12px;
+    }
+   
+  }
+  
