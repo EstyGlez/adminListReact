@@ -27,4 +27,3 @@ Para instalar la aplicación, sigue estos pasos:
 2. Navega hasta el directorio del proyecto: `cd repo`
 3. Instala las dependencias: `npm install`
 4. Inicia la aplicación: `npm start`
-
