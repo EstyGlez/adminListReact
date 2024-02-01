@@ -15,6 +15,7 @@ const AdminList = () => {
 
  const [adminList, setAdminList] = useState([]);
  const methods = useForm();
+ const {register, handleSubmit, formState: {errors}} = methods;
 
  async function getData(){
     let users=await UserService.getAllUsers();
@@ -36,21 +37,39 @@ const AdminList = () => {
  }
 
  const onSubmit = methods.handleSubmit(data => {
- if (!data.userName || !data.surName || !data.lastName || !data.email || !data.phoneNumber) {
-    alert("Por favor, complete todos los campos.");
-    return;
- }
+  let isAnyFieldEmpty = false;
 
- // Lógica para agregar un nuevo usuario
+  if (!data.userName) {
+      alert("El nombre de usuario es requerido.");
+      isAnyFieldEmpty = true;
+  }
+  if (!data.surName) {
+      alert("El primer apellido es requerido.");
+      isAnyFieldEmpty = true;
+  }
+  if (!data.lastName) {
+      alert("El segundo apellido es requerido.");
+      isAnyFieldEmpty = true;
+  }
+  if (!data.email) {
+      alert("El correo electrónico es requerido.");
+      isAnyFieldEmpty = true;
+  }
+  if (!data.phoneNumber) {
+      alert("El número de teléfono es requerido.");
+      isAnyFieldEmpty = true;
+  }
+
+  if (isAnyFieldEmpty) {
+      alert("Todos los campos son obligatorios.");
+      return;
+  }
+
+
  UserService.submitUser(data);
  methods.reset();
- setUser({
-      userName: "",
-      surName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: ""
-    });
+ showAlert();
+
 });
 
  return (
@@ -67,6 +86,7 @@ const AdminList = () => {
           name="userName"
           {...methods.register('userName', { required: true })}
         />
+        {errors.userName && <p className="error">El nombre de usuario es requerido.</p>}
       </label>
 
       <label>
@@ -77,6 +97,7 @@ const AdminList = () => {
           name="surName"
           {...methods.register('surName', { required: true })}
         />
+        {errors.surName && <p className="error">El Primer Apellido es requerido.</p>}
       </label>
 
       <label>
@@ -85,8 +106,9 @@ const AdminList = () => {
           type="text"
           id="textLastName"
           name="lastName"
-          {...methods.register('lastName', { required: true })}
+          {...methods.register('lastName', { required: true})}
         />
+        {errors.lastName && <p className="error">El Segundo Apellido es requerido.</p>}
       </label>
 
       <label>
@@ -97,6 +119,7 @@ const AdminList = () => {
           name="email"
           {...methods.register('email', { required: true })}
         />
+        {errors.email && <p className="error">El correo electrónico es requerido.</p>}
       </label>
 
       <label>
@@ -107,6 +130,7 @@ const AdminList = () => {
           name="phoneNumber"
           {...methods.register('phoneNumber', { required: true })}
         />
+        {errors.phoneNumber && <p className="error">El teléfono es requerido.</p>}
       </label>
 
       <button className="buttonForm" type="submit">Añadir usuario</button>
