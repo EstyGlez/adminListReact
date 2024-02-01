@@ -38,6 +38,7 @@ const AdminList = () => {
 
  const onSubmit = methods.handleSubmit(data => {
   let isAnyFieldEmpty = false;
+  
 
   if (!data.userName) {
       alert("El nombre de usuario es requerido.");
@@ -65,7 +66,7 @@ const AdminList = () => {
       return;
   }
 
-
+ console.log(alert)
  UserService.submitUser(data);
  methods.reset();
  showAlert();
