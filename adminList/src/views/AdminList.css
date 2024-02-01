@@ -106,13 +106,6 @@ border-radius: 7px;
 
 @media screen and (max-width: 430px) {
 
-
-  /* body {
-     background-color: rgb(216, 188, 240);
-     margin:0;
-     padding: 0;
-  }
-  */
   .container{
      display: flex;
      flex-wrap: nowrap;
@@ -121,10 +114,7 @@ border-radius: 7px;
      align-items: stretch;
   }
  
-  /* .FormContainer {
-     display: flex;
-     flex-direction:column;
-  } */
+
  
   .Form {
      display: flex;
