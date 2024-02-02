@@ -18,7 +18,6 @@ HTML
 CSS
 Bootstrap
 React
-Redux
 Node.js
 
 ## Instalación
