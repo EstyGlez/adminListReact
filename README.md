@@ -17,8 +17,8 @@ El proyecto está en producción.
 HTML
 CSS
 Bootstrap
+JavaScript
 React
-Redux
 Node.js
 
 ## Instalación
