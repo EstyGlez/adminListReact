@@ -4,18 +4,9 @@ import { useForm, FormProvider } from "react-hook-form";
 import { UserService } from "../../UserService.js"
 
 const AdminList = () => {
-
-//  const [user, setUser] = useState({
-//     userName: "",
-//     surName: "",
-//     lastName: "",
-//     email: "",
-//     phoneNumber: ""
-//  });
-
  const [adminList, setAdminList] = useState([]);
  const methods = useForm();
- const {register, handleSubmit, formState: {errors}} = methods;
+ const {formState: {errors}} = methods;
 
  async function getData(){
     let users=await UserService.getAllUsers();
